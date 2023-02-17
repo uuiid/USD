@@ -43,7 +43,7 @@ function(_copy_headers LIBRARY_NAME)
     set(hpath "${_args_PREFIX}/${LIBRARY_NAME}")
     if ("${CMAKE_CURRENT_SOURCE_DIR}" MATCHES ".*/pxr/.*")
         # Include paths under pxr/ match the source path.
-        file(RELATIVE_PATH hpath "${CMAKE_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}")
+        file(RELATIVE_PATH hpath "${usd_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}")
     endif()
     set(header_dest_dir "${CMAKE_BINARY_DIR}/${PXR_INSTALL_SUBDIR}/include/${hpath}")
     if( NOT "${_args_FILES}" STREQUAL "")

@@ -24,7 +24,7 @@
 include(Private)
 
 function(pxr_build_documentation)
-    configure_file(${CMAKE_SOURCE_DIR}/docs/doxygen/Doxyfile.in
+    configure_file(${usd_SOURCE_DIR}/docs/doxygen/Doxyfile.in
                    ${CMAKE_BINARY_DIR}/Doxyfile)
 
     add_custom_target(
@@ -38,7 +38,7 @@ function(pxr_build_documentation)
             "${CMAKE_BINARY_DIR}/docs/include/pxr/pxr.h"
         COMMAND 
             ${CMAKE_COMMAND} -E copy_directory
-            "${CMAKE_SOURCE_DIR}/docs"
+            "${usd_SOURCE_DIR}/docs"
             "${CMAKE_BINARY_DIR}/docs"
     )
 
@@ -930,7 +930,7 @@ endfunction() # pxr_setup_third_plugins
 function(pxr_toplevel_prologue)
     # Generate a namespace declaration header, pxr.h, at the top level of
     # pxr at configuration time.
-    configure_file(${CMAKE_SOURCE_DIR}/pxr/pxr.h.in
+    configure_file(${usd_SOURCE_DIR}/pxr/pxr.h.in
         ${CMAKE_BINARY_DIR}/include/pxr/pxr.h     
     )  
     install(
